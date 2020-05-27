@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>burgers/new.html</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>New Burger</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <form method="post" action="/burgers">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="name">이름</label>
+          <div class="col-sm-10">
+            <input class="form-control" name="name" id="name" placeholder="버거 이름을 입력하세요">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="price">가격</label>
+          <div class="col-sm-10">
+            <input class="form-control" name="price" id="price" placeholder="버거 가격을 입력하세요">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">재료</label>
+          <div class="col-sm-10">
+            <input type="checkbox" name="ingredientList" th:each="ingredient: ${ingredientList}" th:value="${ingredient.id}" th:text="${ingredient.name}"><!-- ? -->
+          </div>
+        </div>
+
+
+
+        <button class="btn btn-primary">제출</button>
+
+      </form>
+    </div>
+
+
+
+  </body>
+</html>

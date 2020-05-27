@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>burgers/show.html</title>
+    <link rel="stylesheet" th:href="@{/css/burgers/burger.css}">
+<!--    <style>-->
+<!--      ul {-->
+<!--    padding: 50px;-->
+<!--}-->
+<!--li {-->
+<!--    display: inline-block;-->
+<!--    list-style-type:none;-->
+<!--    width:30px;-->
+<!--    height:50px;-->
+<!--    border:5px solid red;-->
+<!--}-->
+
+<!--    </style>-->
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 th:text="|이름: ${burger.name}|"></h1>
+        <p th:text="|가격: ${burger.price}|"></p>
+        <p th:each="ingredient: ${burger.ingredientList}"></p>
+        <p th:text="|재료: ${ingredient.name}|" th:each="ingredient: ${burger.ingredientList}"></p>
+        <ul>
+          <li>재료</li>
+          <li th:each="ingredient: ${burger.ingredientList}" th:text="${ingredient.getName()}"></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
